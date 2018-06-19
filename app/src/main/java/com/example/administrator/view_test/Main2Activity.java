@@ -28,6 +28,7 @@ public class Main2Activity extends BaseActivity {
     @BindView(R.id.showScroller)
     public Button showScroller;
 
+
     @BindView(R.id.showsplash)
     public Button showsplash;
 
