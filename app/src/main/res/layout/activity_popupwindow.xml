@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_popupwindow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.view_test.Popupwindow.popupwindowActivity">
+
+    <Button
+        android:text="show"
+        android:id="@+id/show_popupwindow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="anim"
+        android:id="@+id/show_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:text="hahaha"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/view_touming"
+        android:background="#88323232"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"></View>
+
+
+    <RelativeLayout
+        android:id="@+id/client_phone_pupopwindow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/client_phone_text"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_above="@+id/client_phone_cancel"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/icon_phone_popup"
+            android:gravity="center"
+            android:text="0775-123456"
+            android:textColor="#1680fa"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/client_phone_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/icon_phone_popup"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#1680fa"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.view_test">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_120"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TimePicker.TimePickerActivity"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity
+            android:name=".Main2Activity"
+            android:launchMode="standard" />
+        <activity android:name=".Popupwindow.popupwindowActivity" />
+        <activity android:name=".showandhide.showandhideActivity" />
+        <activity android:name=".CallPhone.callphoneActivity" />
+        <activity android:name=".ConstraintActivity" />
+        <activity android:name=".ViewPager.viewpagerActivity" />
+        <activity android:name=".ViewPager.viewpagerFragment.viewpagerfragmentActivity" />
+        <activity android:name=".gank.activity.WelfareActivity" />
+        <activity android:name=".RxJava.rxjava1Activity" />
+        <activity android:name=".hellocharts.HelloChartsActivity" />
+        <activity android:name=".event.EventTestActivity" />
+        <activity android:name=".gank.activity.BigImageActivity" />
+        <activity android:name=".buttonActivity" />
+        <activity android:name=".H5.h5Activity" />
+        <activity android:name=".TabLayout.tabLayoutActivity" />
+        <activity android:name=".customview.customActivity" />
+        <activity android:name=".H5.H5ToAndroidActivity" />
+        <activity android:name=".PropertyAnimation.AnimationActivity" />
+        <activity android:name=".listview.listviewActivity" />
+        <activity android:name=".listview.pullToRefreshListViewGai.listview2Activity" />
+        <activity android:name=".customview.ScrollView.ScrollView1Activity" />
+        <activity android:name=".ShareSdk.shareSdkActivity" />
+        <activity android:name=".ShareSdk.login.RegisterPageActivity" />
+        <activity android:name=".Slideshow.SlideShowActivity" />
+        <activity android:name=".ScrollView.ScrollViewActivity" />
+        <activity android:name=".ScrollView.headAndfoot.ScrollView2Activity" />
+        <activity android:name=".H5.H5ToAndroidActivity2" />
+        <activity android:name=".photodemo.photoActivity" />
+        <activity android:name=".RecyclerMoreActivity.RecyclerViewMoreActivity" />
+        <activity android:name=".splash.splashActivity" />
+        <activity android:name=".vlayout.vlayoutActivity" />
+        <activity android:name=".ValueAnimator.ValueAnimatorActivity" />
+        <activity android:name=".doubleClick.doubleClickActivity" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 集成line客户端登录授权，需要添如下格式的过滤器 -->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".privateDir.privatedirActivity" />
+        <activity android:name=".splash.WebViewActivity" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="kH0Cc00K7hbXdGwzPmihYGXOB4XrqMSw"
+            android:value="AK" />
+
+        <activity android:name=".ScrollView.Scroller.ScrollerActivity"></activity>
+    </application>
+
+</manifest>

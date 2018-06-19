@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="my_popupwindow" parent="android:Animation">
+            <item name="android:windowEnterAnimation">@anim/anim_popupwindow_up</item>
+            <item name="android:windowExitAnimation">@anim/anim_popupwindow_down</item>
+    </style>
+
+
+    <style name="loading" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/loading</item>
+        <item name="android:layout_width">55dip</item>
+        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!-- listView 刷新 -->
+    <style name="loading_small" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/loading</item>
+        <item name="android:layout_width">55dip</item>
+        <item name="android:layout_height">21dip</item>
+    </style>
+</resources>

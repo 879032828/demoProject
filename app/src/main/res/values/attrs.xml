@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TopBar">
+
+        <attr name="title" format="string"></attr>
+        <attr name="titleTextSize" format="dimension"></attr>
+        <attr name="titleTextColor" format="color"></attr>
+        <attr name="leftTextColor" format="color"></attr>
+        <attr name="leftBackGround" format="reference|color"></attr>
+        <attr name="leftText" format="string"></attr>
+        <attr name="rightTextColor" format="string"></attr>
+        <attr name="rightBackGround" format="reference|color"></attr>
+        <attr name="rightText" format="string"></attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="loadingview">
+
+        <attr name="progressbarWidth" format="dimension"></attr>
+        <attr name="progressbarHeight" format="dimension"></attr>
+        <attr name="fanviewWidth" format="dimension"></attr>
+        <attr name="fanviewHeight" format="dimension"></attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="EasyPickerView">
+        <attr name="epvTextSize" format="dimension" />
+        <attr name="epvTextColor" format="color" />
+        <attr name="epvTextPadding" format="dimension" />
+        <attr name="epvTextMaxScale" format="float" />
+        <attr name="epvTextMinAlpha" format="float" />
+        <attr name="epvRecycleMode" format="boolean" />
+        <attr name="epvMaxShowNum" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"/>
+    </declare-styleable>
+
+</resources>

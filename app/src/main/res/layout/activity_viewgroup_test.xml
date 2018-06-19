@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.view_test.Main2Activity">
+
+    <Button
+        android:id="@+id/showScroller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="弹性滑动" />
+
+    <Button
+        android:id="@+id/showsplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow"
+        android:text="广告页" />
+
+    <Button
+        android:id="@+id/showprivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="私有目录" />
+
+    <Button
+        android:id="@+id/showVlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vlayout" />
+
+    <Button
+        android:id="@+id/showValueAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ValueAnimation" />
+
+    <Button
+        android:id="@+id/showDoubleClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="showDoubleClick" />
+
+    <ImageView
+        android:id="@+id/animate_vector"
+        android:src="@drawable/animatedvector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+</LinearLayout>

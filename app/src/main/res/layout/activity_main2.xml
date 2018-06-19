@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.view_test.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/showsecondActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转到第二个MainActivity" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button1" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_client_info_textview_stroke"
+                android:text="hahahah"
+                android:textSize="19sp" />
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:background="@drawable/label_search"-->
+            <!--android:drawableLeft="@drawable/icon_search"-->
+            <!--android:drawablePadding="10dp"-->
+            <!--android:hint="搜索用户"-->
+            <!--android:textColorHint="#aeaeae"-->
+            <!--android:textSize="12sp" />-->
+
+            <Button
+                android:id="@+id/request_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="影视查询" />
+
+            <Button
+                android:id="@+id/show_and_hide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="展示更多" />
+
+            <Button
+                android:id="@+id/call_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/show_constraint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showConstraint" />
+
+            <Button
+                android:id="@+id/show_viewpager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showViewpager" />
+
+            <Button
+                android:id="@+id/show_viewpagerfragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showViewpagerFragment" />
+
+            <Button
+                android:id="@+id/show_rxjava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showRxjava" />
+
+            <Button
+                android:id="@+id/show_retrofit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showRetrofit" />
+
+            <Button
+                android:id="@+id/show_hellochart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showHelloChart" />
+
+            <Button
+                android:id="@+id/show_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showEvent" />
+
+            <Button
+                android:id="@+id/show_h5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showH5" />
+
+            <Button
+                android:id="@+id/show_tablayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showTabLayout" />
+
+            <Button
+                android:id="@+id/show_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showCustomActivity" />
+
+            <Button
+                android:id="@+id/show_H5ToAndroid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showH5ToAndroid" />
+
+            <Button
+                android:id="@+id/show_property_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="属性动画" />
+
+            <Button
+                android:id="@+id/show_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="列表滑动" />
+
+            <Button
+                android:id="@+id/show_list_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="列表滑动2" />
+
+            <Button
+                android:id="@+id/show_list_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="view滑动2" />
+
+            <Button
+                android:id="@+id/show_crash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试崩溃收集" />
+
+            <Button
+                android:id="@+id/shareSdk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="第三方登录" />
+
+            <Button
+                android:id="@+id/shareSlideShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="轮播图" />
+
+            <Button
+                android:id="@+id/shareScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="嵌套Scroll" />
+
+            <Button
+                android:id="@+id/showphoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拍照" />
+
+            <Button
+                android:id="@+id/showrecyclermore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="recyclermore" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
