@@ -2,24 +2,24 @@
 <resources>
     <declare-styleable name="TopBar">
 
-        <attr name="title" format="string"></attr>
-        <attr name="titleTextSize" format="dimension"></attr>
-        <attr name="titleTextColor" format="color"></attr>
-        <attr name="leftTextColor" format="color"></attr>
-        <attr name="leftBackGround" format="reference|color"></attr>
-        <attr name="leftText" format="string"></attr>
-        <attr name="rightTextColor" format="string"></attr>
-        <attr name="rightBackGround" format="reference|color"></attr>
-        <attr name="rightText" format="string"></attr>
+        <attr name="title" format="string" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="leftTextColor" format="color" />
+        <attr name="leftBackGround" format="reference|color" />
+        <attr name="leftText" format="string" />
+        <attr name="rightTextColor" format="string" />
+        <attr name="rightBackGround" format="reference|color" />
+        <attr name="rightText" format="string" />
 
     </declare-styleable>
 
     <declare-styleable name="loadingview">
 
-        <attr name="progressbarWidth" format="dimension"></attr>
-        <attr name="progressbarHeight" format="dimension"></attr>
-        <attr name="fanviewWidth" format="dimension"></attr>
-        <attr name="fanviewHeight" format="dimension"></attr>
+        <attr name="progressbarWidth" format="dimension" />
+        <attr name="progressbarHeight" format="dimension" />
+        <attr name="fanviewWidth" format="dimension" />
+        <attr name="fanviewHeight" format="dimension" />
 
     </declare-styleable>
 
@@ -36,7 +36,19 @@
     <declare-styleable name="roundedimageview">
         <attr name="border_thickness" format="dimension" />
         <attr name="border_inside_color" format="color" />
-        <attr name="border_outside_color" format="color"/>
+        <attr name="border_outside_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="progressView">
+
+        <attr name="progressViewBackgroundColor" format="color" />
+        <attr name="progressViewColor" format="color" />
+        <attr name="progressTextSize" format="dimension" />
+        <attr name="progressTextColor" format="color" />
+        <attr name="ratio" format="integer" />
+
+
     </declare-styleable>
 
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_animation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.view_test.PropertyAnimation.AnimationActivity">
+
+    <Button
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="增加进度" />
+
+    <com.example.administrator.view_test.progressView.ProgressView
+        android:id="@+id/pv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:progressTextSize="12sp"
+        app:progressViewColor="@color/colorAccent"
+        app:ratio="10" />
+
+
+</LinearLayout>

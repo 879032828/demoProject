@@ -9,4 +9,8 @@
     <color name="white">#ffffff</color>
     <color name="process_white">#fde399</color>
     <color name="orange">#FFB90F</color>
+
+    <color name="color_ced0ee">#CED0EE</color>
+    <color name="color_8488d5">#8488D5</color>
+    <color name="color_e9e9e9">#ffe9e9e9</color>
 </resources>

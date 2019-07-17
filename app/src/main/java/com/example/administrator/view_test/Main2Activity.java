@@ -17,6 +17,7 @@ import com.example.administrator.view_test.ValueAnimator.ValueAnimatorActivity;
 import com.example.administrator.view_test.baiduSDK.MyLocationListener;
 import com.example.administrator.view_test.doubleClick.doubleClickActivity;
 import com.example.administrator.view_test.privateDir.privatedirActivity;
+import com.example.administrator.view_test.progressView.ProgressViewActivity;
 import com.example.administrator.view_test.splash.splashActivity;
 import com.example.administrator.view_test.vlayout.vlayoutActivity;
 
@@ -49,6 +50,9 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.animate_vector)
     public ImageView animate_vector;
+
+    @BindView(R.id.showProgressView)
+    public Button showProgressView;
 
     public LocationClient mLocationClient = null;
 
@@ -159,5 +163,11 @@ public class Main2Activity extends BaseActivity {
         //可选，默认false，设置是否需要过滤GPS仿真结果，默认需要
 
         mLocationClient.setLocOption(option);
+    }
+
+    @OnClick(R.id.showProgressView)
+    public void showProgressView() {
+        Intent intent = new Intent(Main2Activity.this, ProgressViewActivity.class);
+        startActivity(intent);
     }
 }

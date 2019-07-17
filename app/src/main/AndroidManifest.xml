@@ -125,6 +125,7 @@
             android:value="AK" />
 
         <activity android:name=".ScrollView.Scroller.ScrollerActivity"></activity>
+        <activity android:name=".progressView.ProgressViewActivity"></activity>
     </application>
 
 </manifest>
