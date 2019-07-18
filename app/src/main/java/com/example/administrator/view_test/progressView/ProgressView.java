@@ -192,10 +192,10 @@ public class ProgressView extends View {
         //绘制背景条
         canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), bgWidth, height - getPaddingBottom(), height / 2, height / 2, bgPaint);
 
-        drawProgress(canvas, progressWidth);
-
-        drawProgressText(canvas, ratio);
-
+        if (progress < totalProgress) {
+            drawProgress(canvas, progressWidth);
+            drawProgressText(canvas, ratio);
+        }
     }
 
     /**
@@ -231,6 +231,6 @@ public class ProgressView extends View {
         float fontHeight = textPaint.descent() - textPaint.ascent();//字体的高度
         float baseline = fontHeight / 2 - fontMetrics.bottom;//字体中心点到基准线的距离
         float y = height / 2 + baseline;//基准线的Y轴位置，使字体居中
-        canvas.drawText(this.progress + "/" + totalProgress, ratio * 8, y, textPaint);
+        canvas.drawText(this.progress + "/" + totalProgress, (float) (width * 0.8), y, textPaint);
     }
 }

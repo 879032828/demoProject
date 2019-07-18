@@ -72,6 +72,13 @@
                 android:layout_height="wrap_content"
                 android:text="showProgressView" />
 
+            <com.example.administrator.view_test.view.StrokeTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有点东西"
+                android:textColor="@color/color_fffd51"
+                android:textSize="30sp" />
+
         </LinearLayout>
 
 

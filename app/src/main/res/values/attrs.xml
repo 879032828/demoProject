@@ -48,7 +48,6 @@
         <attr name="progressTextColor" format="color" />
         <attr name="ratio" format="integer" />
 
-
     </declare-styleable>
 
 </resources>
