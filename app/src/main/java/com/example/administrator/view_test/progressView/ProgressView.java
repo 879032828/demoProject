@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -53,6 +54,10 @@ public class ProgressView extends View {
      */
     private Paint textPaint = new Paint();
     /**
+     * 白色画笔
+     */
+    private Paint mWhitePaint = new Paint();
+    /**
      * 进度条颜色
      */
     private int progressColor;
@@ -89,13 +94,13 @@ public class ProgressView extends View {
     }
 
     private void initPaint() {
-        bgPaint.setColor(getResources().getColor(R.color.color_e9e9e9));
+        bgPaint.setColor(getResources().getColor(R.color.colorPrimaryDark));
         bgPaint.setAntiAlias(true);//消除锯齿
         bgPaint.setStrokeWidth(0);
         bgPaint.clearShadowLayer();
         bgPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
-        progressPaint.setColor(progressColor);
+        progressPaint.setColor(getResources().getColor(R.color.color_fffd51));
         progressPaint.setAntiAlias(true);//消除锯齿
         progressPaint.setStrokeWidth(0);
         progressPaint.clearShadowLayer();
@@ -107,6 +112,13 @@ public class ProgressView extends View {
         textPaint.clearShadowLayer();
         textPaint.setTextSize(progressTextSize);
         textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+
+
+        mWhitePaint.setColor(getResources().getColor(R.color.colorPrimary));
+        mWhitePaint.setAntiAlias(true);//消除锯齿
+        mWhitePaint.setStrokeWidth(1);
+        mWhitePaint.clearShadowLayer();
+        mWhitePaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
 
     }
@@ -189,28 +201,102 @@ public class ProgressView extends View {
         Log.d(TAG, "bgWidth = " + bgWidth);
         Log.d(TAG, "ratio = " + ratio);
 
-        //绘制背景条
-        canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), bgWidth, height - getPaddingBottom(), height / 2, height / 2, bgPaint);
+        drawBackground(canvas);
 
-        if (progress < totalProgress) {
-            drawProgress(canvas, progressWidth);
-            drawProgressText(canvas, ratio);
-        }
+        drawProgress(canvas, progressWidth);
+
+//        if (progress < totalProgress && progressWidth > 0) {
+//            initRecf(progressWidth);
+//            drawProgress(canvas, progressWidth, progressWidth);
+//            drawProgressText(canvas, ratio);
+//        }
     }
 
     /**
-     * 根据进度绘制进度条
+     * 绘制进度条背景
      *
      * @param canvas
-     * @param progressWidth
      */
+    private void drawBackground(Canvas canvas) {
+        RectF mArcRectF = new RectF(0, 0, height, height);
+        canvas.drawArc(mArcRectF, 90, 180, false, bgPaint);
+        RectF mWhiteRectF = new RectF(height / 2, 0, width - height / 2, height);
+        canvas.drawRect(mWhiteRectF, bgPaint);
+        mArcRectF = new RectF(width - height, 0, width, height);
+        canvas.drawArc(mArcRectF, 270, 180, false, bgPaint);
+    }
+
+//    /**
+//     * 根据进度绘制进度条
+//     *
+//     * @param canvas
+//     * @param progressWidth
+//     */
+//    private void drawProgress(Canvas canvas, float progressWidth) {
+//        if (progressWidth != 0) {
+//            if (progressWidth < height) {
+//                canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), progressWidth, height - getPaddingBottom(), progressWidth / 2, height / 2, progressPaint);
+//            } else {
+//                canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), progressWidth, height - getPaddingBottom(), height / 2, height / 2, progressPaint);
+//            }
+//        }
+//    }
+
+    float mCurrentProgressPosition;
+    float mArcRadius;
+    RectF mArcRectF;
+    RectF mRoundRectF;
+    RectF mWhiteRectF;
+    RectF mOrangeRectF;
+
+
     private void drawProgress(Canvas canvas, float progressWidth) {
-        if (progressWidth != 0) {
-            if (progressWidth < height) {
-                canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), progressWidth, height - getPaddingBottom(), progressWidth / 2, height / 2, progressPaint);
-            } else {
-                canvas.drawRoundRect(0 + getPaddingLeft(), 0 + getPaddingTop(), progressWidth, height - getPaddingBottom(), height / 2, height / 2, progressPaint);
-            }
+
+        mArcRectF = new RectF(0, 0, progressWidth, height);
+
+        mArcRadius = height / 2;
+
+        // mProgressWidth为进度条的宽度，根据当前进度算出进度条的位置
+        mCurrentProgressPosition = this.width * progress / totalProgress;
+        // 即当前位置在图中所示1范围内
+        if (mCurrentProgressPosition < mArcRadius) {
+            Log.i(TAG, "mProgress = " + progress + "---mCurrentProgressPosition = "
+                    + mCurrentProgressPosition
+                    + "--mArcProgressWidth" + mArcRadius);
+
+            // 3.绘制棕色 ARC
+            // 单边角度
+            int angle = (int) Math.toDegrees(Math.acos((mArcRadius - mCurrentProgressPosition)
+                    / (float) mArcRadius));
+            // 起始的位置
+            int startAngle = 180 - angle;
+            // 扫过的角度
+            int sweepAngle = 2 * angle;
+            Log.i(TAG, "startAngle = " + startAngle);
+            canvas.drawArc(mArcRectF, startAngle, sweepAngle, false, progressPaint);
+        } else {
+            // 1.绘制white RECT
+            // 2.绘制Orange ARC
+            // 3.绘制orange RECT
+
+            // 1.绘制white RECT
+//            mWhiteRectF.left = mCurrentProgressPosition;
+//            canvas.drawRect(mWhiteRectF, mWhitePaint);
+
+
+            mArcRectF = new RectF(0, 0, height, height);
+            // 2.绘制Orange ARC
+            canvas.drawArc(mArcRectF, 90, 180, false, progressPaint);
+            // 3.绘制orange RECT
+            mOrangeRectF = new RectF(0, 0, 0, height);
+            mOrangeRectF.left = height / 2;
+            mOrangeRectF.right = mCurrentProgressPosition - height / 2;
+            canvas.drawRect(mOrangeRectF, progressPaint);
+            mArcRectF = new RectF(mCurrentProgressPosition - height, 0, mCurrentProgressPosition, height);
+            // 2.绘制Orange ARC
+            canvas.drawArc(mArcRectF, 270, 180, false, progressPaint);
+
+
         }
     }
 

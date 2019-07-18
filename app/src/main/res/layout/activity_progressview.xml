@@ -23,7 +23,19 @@
         android:layout_marginRight="15dp"
         app:progressTextSize="12sp"
         app:progressViewColor="@color/colorAccent"
-        app:ratio="1" />
+        app:ratio="50" />
 
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始" />
+
+    <com.example.administrator.view_test.progressView.ValueProgressView
+        android:id="@+id/progressview2"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginLeft="10dp" />
 
 </LinearLayout>
