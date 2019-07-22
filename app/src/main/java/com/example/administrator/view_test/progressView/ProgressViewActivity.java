@@ -72,6 +72,7 @@ public class ProgressViewActivity extends BaseActivity {
 
     @Override
     public void initPresenter() {
+        progress = 390;
         tv_progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

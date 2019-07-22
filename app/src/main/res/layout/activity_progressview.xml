@@ -23,7 +23,7 @@
         android:layout_marginRight="15dp"
         app:progressTextSize="12sp"
         app:progressViewColor="@color/colorAccent"
-        app:ratio="50" />
+        app:ratio="400" />
 
 
     <Button
