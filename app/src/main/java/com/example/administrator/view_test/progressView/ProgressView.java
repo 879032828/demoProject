@@ -69,6 +69,17 @@ public class ProgressView extends View {
      * 进度文本颜色
      */
     private int progressTextColor;
+    /**
+     * 当前进度位置
+     */
+    float mCurrentProgressPosition;
+    /**
+     * 半圆弧半径
+     */
+    float mArcRadius;
+
+    RectF mArcRectF;
+    RectF mOrangeRectF;
 
     public ProgressView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -183,10 +194,10 @@ public class ProgressView extends View {
     }
 
     public void setProgress(int progress) {
-        this.progress = progress;
         if (progress > totalProgress) {
             return;
         }
+        this.progress = progress;
         invalidate();
     }
 
@@ -210,11 +221,6 @@ public class ProgressView extends View {
             drawProgress(canvas, progressWidth);
             drawProgressText(canvas, ratio);
         }
-//        if (progress < totalProgress && progressWidth > 0) {
-//            initRecf(progressWidth);
-//            drawProgress(canvas, progressWidth, progressWidth);
-//            drawProgressText(canvas, ratio);
-//        }
     }
 
     /**
@@ -231,52 +237,6 @@ public class ProgressView extends View {
         canvas.drawArc(mArcRectF, 270, 180, false, bgPaint);
     }
 
-    float mCurrentProgressPosition;
-    float mArcRadius;
-    RectF mArcRectF;
-    RectF mOrangeRectF;
-
-
-//    private void drawProgress(Canvas canvas, float progressWidth) {
-//
-//        mArcRectF = new RectF(0, 0, progressWidth, height);
-//
-//        mArcRadius = height / 2;
-//
-//        // mProgressWidth为进度条的宽度，根据当前进度算出进度条的位置
-//        mCurrentProgressPosition = this.width * progress / totalProgress;
-//        if (mCurrentProgressPosition < mArcRadius) {
-//            Log.i(TAG, "mProgress = " + progress + "---mCurrentProgressPosition = "
-//                    + mCurrentProgressPosition
-//                    + "--mArcProgressWidth" + mArcRadius);
-//
-//            // 单边角度
-//            int angle = (int) Math.toDegrees(Math.acos((mArcRadius - mCurrentProgressPosition)
-//                    / (float) mArcRadius));
-//            // 起始的位置
-//            int startAngle = 180 - angle;
-//            // 扫过的角度
-//            int sweepAngle = 2 * angle;
-//            Log.i(TAG, "startAngle = " + startAngle);
-//            canvas.drawArc(mArcRectF, startAngle, sweepAngle, false, progressPaint);
-//        } else {
-//            mArcRectF = new RectF(0, 0, height, height);
-//            canvas.drawArc(mArcRectF, 90, 180, false, progressPaint);
-//            mOrangeRectF = new RectF(0, 0, 0, height);
-//            mOrangeRectF.left = height / 2;
-//            mOrangeRectF.right = mCurrentProgressPosition;
-////            if (mCurrentProgressPosition - height / 2 < mArcRadius) {
-////                mOrangeRectF.right = mCurrentProgressPosition;
-////            } else {
-////                mOrangeRectF.right = mCurrentProgressPosition - height / 2;
-////            }
-//            canvas.drawRect(mOrangeRectF, progressPaint);
-////            mArcRectF = new RectF(mCurrentProgressPosition, 0, mCurrentProgressPosition, height);
-////            canvas.drawArc(mArcRectF, 270, 180, false, progressPaint);
-//
-//        }
-//    }
-
     private void drawProgress(Canvas canvas, float progressWidth) {
 
         mArcRectF = new RectF(0, 0, progressWidth, height);
@@ -284,7 +244,7 @@ public class ProgressView extends View {
         mArcRadius = height >> 1;
 
         // mProgressWidth为进度条的宽度，根据当前进度算出进度条的位置
-        mCurrentProgressPosition = (width - getPaddingRight() - height/2) * progress / totalProgress;
+        mCurrentProgressPosition = (width - getPaddingRight() - height / 2) * progress / totalProgress;
 
         if (mCurrentProgressPosition <= mArcRadius) {
             mArcRectF = new RectF(0, 0, height, height);
