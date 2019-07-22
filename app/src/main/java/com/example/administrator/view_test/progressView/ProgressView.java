@@ -198,7 +198,7 @@ public class ProgressView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        float bgWidth = width - getPaddingRight();
+        float bgWidth = width - getPaddingRight() - height;
         float ratio = bgWidth / totalProgress;
         float progressWidth = ratio * progress;
         Log.d(TAG, "bgWidth = " + bgWidth);
@@ -225,7 +225,7 @@ public class ProgressView extends View {
     private void drawBackground(Canvas canvas) {
         RectF mArcRectF = new RectF(0, 0, height, height);
         canvas.drawArc(mArcRectF, 90, 180, false, bgPaint);
-        RectF mWhiteRectF = new RectF(height / 2, 0, width - height / 2, height);
+        RectF mWhiteRectF = new RectF(height >> 1, 0, width - (height >> 1), height);
         canvas.drawRect(mWhiteRectF, bgPaint);
         mArcRectF = new RectF(width - height, 0, width, height);
         canvas.drawArc(mArcRectF, 270, 180, false, bgPaint);
@@ -281,32 +281,24 @@ public class ProgressView extends View {
 
         mArcRectF = new RectF(0, 0, progressWidth, height);
 
-        mArcRadius = height / 2;
+        mArcRadius = height >> 1;
 
         // mProgressWidth为进度条的宽度，根据当前进度算出进度条的位置
-        mCurrentProgressPosition = this.width * progress / totalProgress;
+        mCurrentProgressPosition = (width - getPaddingRight() - height/2) * progress / totalProgress;
+
         if (mCurrentProgressPosition <= mArcRadius) {
             mArcRectF = new RectF(0, 0, height, height);
             canvas.drawArc(mArcRectF, 90, 360, false, progressPaint);
         }
-        float max = width - mArcRadius;
-        if (mArcRadius < mCurrentProgressPosition && mCurrentProgressPosition < max) {
+        if (mArcRadius < mCurrentProgressPosition) {
             mArcRectF = new RectF(0, 0, height, height);
             canvas.drawArc(mArcRectF, 90, 180, false, progressPaint);
             mOrangeRectF = new RectF(0, 0, 0, height);
-            mOrangeRectF.left = height / 2;
+            mOrangeRectF.left = height >> 1;
             mOrangeRectF.right = mCurrentProgressPosition;
             canvas.drawRect(mOrangeRectF, progressPaint);
-            mArcRectF = new RectF(mCurrentProgressPosition - height / 2, 0, mCurrentProgressPosition + height / 2, height);
+            mArcRectF = new RectF(mCurrentProgressPosition - (height >> 1), 0, mCurrentProgressPosition + (height >> 1), height);
             canvas.drawArc(mArcRectF, 270, 360, false, progressPaint);
-        }
-        if (mCurrentProgressPosition > max) {
-            mArcRectF = new RectF(0, 0, height, height);
-            canvas.drawArc(mArcRectF, 90, 180, false, progressPaint);
-            mOrangeRectF = new RectF(0, 0, 0, height);
-            mOrangeRectF.left = height / 2;
-            mOrangeRectF.right = max;
-            canvas.drawRect(mOrangeRectF, progressPaint);
         }
     }
 

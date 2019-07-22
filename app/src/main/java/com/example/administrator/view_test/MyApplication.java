@@ -3,11 +3,7 @@ package com.example.administrator.view_test;
 import android.app.Application;
 import android.util.Log;
 
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
 import com.example.administrator.view_test.ExceptionHandler.CrashHandler;
-import com.example.administrator.view_test.baiduSDK.MyLocationListener;
 import com.tencent.smtt.sdk.QbSdk;
 
 /**
