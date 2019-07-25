@@ -126,6 +126,8 @@
 
         <activity android:name=".ScrollView.Scroller.ScrollerActivity"></activity>
         <activity android:name=".progressView.ProgressViewActivity"></activity>
+        <activity android:name=".webp.webpActivity" />
+        <activity android:name=".LenTextView.LeanTextViewActivity" />
     </application>
 
 </manifest>

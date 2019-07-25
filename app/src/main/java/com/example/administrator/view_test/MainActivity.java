@@ -344,6 +344,6 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.showsecondActivity)
     public void showsecondActivity() {
-        this.getApplicationContext().startActivity(new Intent(MainActivity.this, Main2Activity.class));
+        startActivity(new Intent(MainActivity.this, Main2Activity.class));
     }
 }

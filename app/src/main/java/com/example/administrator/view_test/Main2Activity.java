@@ -12,6 +12,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.administrator.view_test.Base.BaseActivity;
+import com.example.administrator.view_test.LenTextView.LeanTextViewActivity;
 import com.example.administrator.view_test.ScrollView.Scroller.ScrollerActivity;
 import com.example.administrator.view_test.ValueAnimator.ValueAnimatorActivity;
 import com.example.administrator.view_test.baiduSDK.MyLocationListener;
@@ -20,6 +21,7 @@ import com.example.administrator.view_test.privateDir.privatedirActivity;
 import com.example.administrator.view_test.progressView.ProgressViewActivity;
 import com.example.administrator.view_test.splash.splashActivity;
 import com.example.administrator.view_test.vlayout.vlayoutActivity;
+import com.example.administrator.view_test.webp.webpActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -53,6 +55,12 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.showProgressView)
     public Button showProgressView;
+
+    @BindView(R.id.showWebp)
+    public Button showWebp;
+
+    @BindView(R.id.showLean)
+    public Button showLean;
 
     public LocationClient mLocationClient = null;
 
@@ -168,6 +176,18 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.showProgressView)
     public void showProgressView() {
         Intent intent = new Intent(Main2Activity.this, ProgressViewActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.showWebp)
+    public void showWebp() {
+        Intent intent = new Intent(Main2Activity.this, webpActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.showLean)
+    public void showLean() {
+        Intent intent = new Intent(Main2Activity.this, LeanTextViewActivity.class);
         startActivity(intent);
     }
 }

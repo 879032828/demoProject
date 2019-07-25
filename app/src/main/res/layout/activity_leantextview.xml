@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp">
+
+
+        <ImageView
+            android:id="@+id/ri_gift_image"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:src="@mipmap/user_bg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_gift_get"
+            android:visibility="gone" />
+
+        <com.example.administrator.view_test.LenTextView.leanTextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="这是什么鬼呀你"
+            android:textColor="@color/black"
+            android:textSize="4dp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_gift_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

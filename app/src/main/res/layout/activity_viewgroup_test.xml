@@ -79,6 +79,18 @@
                 android:textColor="@color/color_fffd51"
                 android:textSize="30sp" />
 
+            <Button
+                android:id="@+id/showWebp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showWebp" />
+
+            <Button
+                android:id="@+id/showLean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showLean" />
+
         </LinearLayout>
 
 
