@@ -13,6 +13,7 @@ import com.example.administrator.view_test.Popupwindow.popupwindowActivity;
 import com.example.administrator.view_test.PropertyAnimation.AnimationActivity;
 import com.example.administrator.view_test.RecyclerMoreActivity.RecyclerViewMoreActivity;
 import com.example.administrator.view_test.RxJava.rxjava1Activity;
+import com.example.administrator.view_test.RxJava.rxjava2Activity;
 import com.example.administrator.view_test.ScrollView.headAndfoot.ScrollView2Activity;
 import com.example.administrator.view_test.Slideshow.SlideShowActivity;
 import com.example.administrator.view_test.TabLayout.tabLayoutActivity;
@@ -66,6 +67,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.show_rxjava)
     public Button mShowRxjava;
+
+    @BindView(R.id.show_rxjava2)
+    public Button mShowRxjava2;
 
     @BindView(R.id.show_retrofit)
     public Button mShowRetrofit;
@@ -252,6 +256,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.show_rxjava)
     public void showRxjava() {
         startActivity(new Intent(MainActivity.this, rxjava1Activity.class));
+    }
+
+    @OnClick(R.id.show_rxjava2)
+    public void showRxjava2() {
+        startActivity(new Intent(MainActivity.this, rxjava2Activity.class));
     }
 
     @OnClick(R.id.show_retrofit)

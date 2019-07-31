@@ -45,7 +45,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         registerEvent();
     }
 
-    private void registerEvent(){
+    private void registerEvent() {
         Log.d(MyApplication.EVENT_DEBUG, UIEventManager.getInstance().canHandleUIEvent(this.getClass()) + "");
         //注册事件监听
         if (UIEventManager.getInstance().canHandleUIEvent(this.getClass())) {
@@ -108,8 +108,10 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
      *****************************/
     //获取布局文件
     public abstract int getLayoutId();
+
     //简单页面无需mvp就不用管此方法即可,完美兼容各种实际场景的变通
     public abstract void initPresenter();
+
 //    //初始化view
 //    public abstract void initView();
 

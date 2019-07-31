@@ -1,6 +1,7 @@
 package com.example.administrator.view_test.LenTextView;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -17,6 +18,7 @@ public class leanTextView extends AppCompatTextView {
     private String TAG = "leanTextView";
 
     private Context mContext;
+    private int paintColor;
 
     public leanTextView(Context context) {
         this(context, null);
@@ -29,6 +31,9 @@ public class leanTextView extends AppCompatTextView {
     public leanTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
+        final TypedArray a = context.obtainStyledAttributes(
+                attrs, R.styleable.leanTextView, defStyleAttr, 0);
+        paintColor = a.getColor(R.styleable.leanTextView_statusColor, getResources().getColor(R.color.white));
         this.setGravity(Gravity.CENTER);
     }
 
@@ -38,11 +43,16 @@ public class leanTextView extends AppCompatTextView {
         setMeasuredDimension(getMeasuredWidth(), getMeasuredWidth());
     }
 
+    public void setPaintColor(int paintColor) {
+        this.paintColor = paintColor;
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
 
         Paint paint = new Paint();
-        paint.setColor(getResources().getColor(R.color.color_5c63f4));
+        paint.setColor(this.paintColor);
         paint.setAntiAlias(true);//消除锯齿
         paint.setStrokeWidth(5);
         paint.clearShadowLayer();

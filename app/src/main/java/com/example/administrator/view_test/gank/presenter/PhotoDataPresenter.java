@@ -7,22 +7,26 @@ import com.example.administrator.view_test.gank.activity.WelfareActivity;
 import com.example.administrator.view_test.gank.bean.GirlData;
 import com.example.administrator.view_test.gank.contract.WelfareContract;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Administrator on 2017/4/10 0010.
  */
 
-public class PhotoDataPresenter extends WelfareContract.Presenter{
+public class PhotoDataPresenter extends WelfareContract.Presenter {
 
     private Retrofit retrofit;
     private requestService service;
@@ -36,7 +40,7 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
         init();
     }
 
-    public void init(){
+    public void init() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
@@ -46,7 +50,7 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
                 .client(okHttpClient)
                 .baseUrl("http://gank.io/api/")
                 .addConverterFactory(ScalarsConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()) //使用工厂模式创建Gason的解析器
                 .build();
         service = retrofit.create(requestService.class);
@@ -54,7 +58,7 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
 
     @Override
     public void requestPhotoData(int size, int page) {
-        final ProgressDialog pd = new ProgressDialog((WelfareActivity)mView);
+        final ProgressDialog pd = new ProgressDialog((WelfareActivity) mView);
         pd.setMessage("正在获取数据...");
 
         //通过retrofit使用okhttp请求到数据后，返回被观察者observable
@@ -62,14 +66,10 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
         service.listPhotoGirl(size, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<GirlData>() {
-                    @Override
-                    public void onCompleted() {
-                        pd.hide();
-                    }
+                .subscribe(new Observer<GirlData>() {
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onSubscribe(Disposable d) {
 
                     }
 
@@ -79,10 +79,15 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
                     }
 
                     @Override
-                    public void onStart() {
-                        super.onStart();
-                        pd.show();
+                    public void onError(Throwable t) {
+
                     }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
                 });
     }
 
@@ -91,14 +96,10 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
         service.listPhotoGirl(size, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<GirlData>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
+                .subscribe(new Observer<GirlData>() {
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onSubscribe(Disposable d) {
 
                     }
 
@@ -108,9 +109,15 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
                     }
 
                     @Override
-                    public void onStart() {
-                        super.onStart();
+                    public void onError(Throwable t) {
+
                     }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
                 });
     }
 
@@ -119,14 +126,10 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
         service.listPhotoGirl(size, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<GirlData>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
+                .subscribe(new Observer<GirlData>() {
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onSubscribe(Disposable d) {
 
                     }
 
@@ -136,12 +139,16 @@ public class PhotoDataPresenter extends WelfareContract.Presenter{
                     }
 
                     @Override
-                    public void onStart() {
-                        super.onStart();
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }
-
 
 
 }

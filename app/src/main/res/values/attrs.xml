@@ -50,4 +50,10 @@
 
     </declare-styleable>
 
+    <declare-styleable name="leanTextView">
+
+        <attr name="statusColor" format="color" />
+
+    </declare-styleable>
+
 </resources>

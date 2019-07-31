@@ -98,6 +98,12 @@
                 android:text="showRxjava" />
 
             <Button
+                android:id="@+id/show_rxjava2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="showRxjava2" />
+
+            <Button
                 android:id="@+id/show_retrofit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

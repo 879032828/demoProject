@@ -31,9 +31,9 @@
         <com.example.administrator.view_test.LenTextView.leanTextView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="这是什么鬼呀你"
+            android:text="已领取"
             android:textColor="@color/black"
-            android:textSize="4dp" />
+            android:textSize="8dp" />
     </RelativeLayout>
 
 

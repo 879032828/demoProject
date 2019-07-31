@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_rxjava1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.view_test.RxJava.rxjava1Activity">
+
+    <Button
+        android:id="@+id/showRxjava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="showRxjava" />
+
+    <Button
+        android:id="@+id/showRxjavaAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="showRxjavaAction" />
+
+    <Button
+        android:id="@+id/setFlatMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="setFlatMap" />
+
+</LinearLayout>
