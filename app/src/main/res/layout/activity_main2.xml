@@ -104,6 +104,12 @@
                 android:text="showRxjava2" />
 
             <Button
+                android:id="@+id/show_rxjava2_anti_shake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="show_rxjava2_anti_shake" />
+
+            <Button
                 android:id="@+id/show_retrofit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -14,6 +14,7 @@ import com.example.administrator.view_test.PropertyAnimation.AnimationActivity;
 import com.example.administrator.view_test.RecyclerMoreActivity.RecyclerViewMoreActivity;
 import com.example.administrator.view_test.RxJava.rxjava1Activity;
 import com.example.administrator.view_test.RxJava.rxjava2Activity;
+import com.example.administrator.view_test.RxJava.rxjava2AntiShakeActivity;
 import com.example.administrator.view_test.ScrollView.headAndfoot.ScrollView2Activity;
 import com.example.administrator.view_test.Slideshow.SlideShowActivity;
 import com.example.administrator.view_test.TabLayout.tabLayoutActivity;
@@ -262,6 +263,12 @@ public class MainActivity extends BaseActivity {
     public void showRxjava2() {
         startActivity(new Intent(MainActivity.this, rxjava2Activity.class));
     }
+
+    @OnClick(R.id.show_rxjava2_anti_shake)
+    public void show_rxjava2_anti_shake() {
+        startActivity(new Intent(MainActivity.this, rxjava2AntiShakeActivity.class));
+    }
+
 
     @OnClick(R.id.show_retrofit)
     public void showRetrofit() {
