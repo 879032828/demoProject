@@ -147,6 +147,7 @@
         <activity android:name=".LenTextView.LeanTextViewActivity" />
         <activity android:name=".RxJava.rxjava2Activity" />
         <activity android:name=".RxJava.rxjava2AntiShakeActivity" />
+        <activity android:name=".DialogFragment.SampleActivity" />
     </application>
 
 </manifest>

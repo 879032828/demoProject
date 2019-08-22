@@ -12,6 +12,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.administrator.view_test.Base.BaseActivity;
+import com.example.administrator.view_test.DialogFragment.SampleActivity;
 import com.example.administrator.view_test.LenTextView.LeanTextViewActivity;
 import com.example.administrator.view_test.ScrollView.Scroller.ScrollerActivity;
 import com.example.administrator.view_test.ValueAnimator.ValueAnimatorActivity;
@@ -61,6 +62,9 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.showLean)
     public Button showLean;
+
+    @BindView(R.id.showdialogFragment)
+    public Button showdialogFragment;
 
     public LocationClient mLocationClient = null;
 
@@ -188,6 +192,12 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.showLean)
     public void showLean() {
         Intent intent = new Intent(Main2Activity.this, LeanTextViewActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.showdialogFragment)
+    public void showdialogFragment() {
+        Intent intent = new Intent(Main2Activity.this, SampleActivity.class);
         startActivity(intent);
     }
 }

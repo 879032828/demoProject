@@ -1,1 +1,1 @@
-include ':app', ':okhttputils', ':common', ':vlayout'
+include ':app', ':okhttputils', ':common', ':vlayout', ':dialogFragmentBlur'
