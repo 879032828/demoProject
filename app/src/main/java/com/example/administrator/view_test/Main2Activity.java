@@ -66,6 +66,9 @@ public class Main2Activity extends BaseActivity {
     @BindView(R.id.showdialogFragment)
     public Button showdialogFragment;
 
+    @BindView(R.id.serviceApkInstaller)
+    public Button serviceApkInstaller;
+
     public LocationClient mLocationClient = null;
 
     public BDLocationListener myListener = new MyLocationListener();
@@ -198,6 +201,12 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.showdialogFragment)
     public void showdialogFragment() {
         Intent intent = new Intent(Main2Activity.this, SampleActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.serviceApkInstaller)
+    public void serviceApkInstaller() {
+        Intent intent = new Intent(Main2Activity.this, InstallActivity.class);
         startActivity(intent);
     }
 }

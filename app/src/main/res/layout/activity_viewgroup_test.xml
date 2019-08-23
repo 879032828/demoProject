@@ -97,6 +97,12 @@
                 android:layout_height="wrap_content"
                 android:text="showdialogFragment" />
 
+            <Button
+                android:id="@+id/serviceApkInstaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="serviceApkInstaller" />
+
         </LinearLayout>
 
 
