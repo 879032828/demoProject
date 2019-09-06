@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.view_test.buttonActivity">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始生成" />
+
+    <Button
+        android:id="@+id/btn_preview_longpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看长图" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</LinearLayout>

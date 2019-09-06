@@ -103,6 +103,12 @@
                 android:layout_height="wrap_content"
                 android:text="serviceApkInstaller" />
 
+            <Button
+                android:id="@+id/drawlongBitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="drawlongBitmap" />
+
         </LinearLayout>
 
 

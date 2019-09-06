@@ -18,6 +18,7 @@ import com.example.administrator.view_test.ScrollView.Scroller.ScrollerActivity;
 import com.example.administrator.view_test.ValueAnimator.ValueAnimatorActivity;
 import com.example.administrator.view_test.baiduSDK.MyLocationListener;
 import com.example.administrator.view_test.doubleClick.doubleClickActivity;
+import com.example.administrator.view_test.drawLongBitmap.DrawLongBitmapActivity;
 import com.example.administrator.view_test.privateDir.privatedirActivity;
 import com.example.administrator.view_test.progressView.ProgressViewActivity;
 import com.example.administrator.view_test.splash.splashActivity;
@@ -68,6 +69,9 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.serviceApkInstaller)
     public Button serviceApkInstaller;
+
+    @BindView(R.id.drawlongBitmap)
+    public Button drawlongBitmap;
 
     public LocationClient mLocationClient = null;
 
@@ -207,6 +211,12 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.serviceApkInstaller)
     public void serviceApkInstaller() {
         Intent intent = new Intent(Main2Activity.this, InstallActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.drawlongBitmap)
+    public void drawlongBitmap() {
+        Intent intent = new Intent(Main2Activity.this, DrawLongBitmapActivity.class);
         startActivity(intent);
     }
 }
