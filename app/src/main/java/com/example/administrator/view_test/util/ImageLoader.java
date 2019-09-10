@@ -195,7 +195,21 @@ public class ImageLoader {
     public void downloadFileWithCallback(Context context, String url, final FileDownloadCallback fileDownloadCallback) {
         Glide.with(context)
                 .load(url)
-                .downloadOnly(new DownloadImageTarget());
+                .downloadOnly(new DownloadImageTarget<File>() {
+                    @Override
+                    public void onLoadFailed(Exception e, Drawable errorDrawable) {
+                        if (fileDownloadCallback != null) {
+                            fileDownloadCallback.onFileFailed(e);
+                        }
+                    }
+
+                    @Override
+                    public void onResourceReady(File resource, GlideAnimation<? super File> glideAnimation) {
+                        if (fileDownloadCallback != null) {
+                            fileDownloadCallback.onFileReady(resource);
+                        }
+                    }
+                });
     }
 
     public void downloadFile(Context context, String url, final FileDownloadCallback fileDownloadCallback) {
@@ -238,6 +252,8 @@ public class ImageLoader {
 
     public interface FileDownloadCallback {
         void onFileReady(File file);
+
+        void onFileFailed(Exception e);
     }
 
     public static byte[] getBytesByBitmap(Bitmap bitmap) {
@@ -245,7 +261,10 @@ public class ImageLoader {
         return buffer.array();
     }
 
-    public class DownloadImageTarget extends BaseTarget<File> {
+    /**
+     * 图片下载回调
+     */
+    public class DownloadImageTarget<File> extends SimpleTarget<File> {
 
         @Override
         public void onLoadStarted(Drawable placeholder) {
@@ -254,7 +273,7 @@ public class ImageLoader {
 
         @Override
         public void onLoadFailed(Exception e, Drawable errorDrawable) {
-            Log.d(TAG, "onLoadFailed");
+            Log.d(TAG, "onLoadFailed ： " + e.getMessage());
         }
 
         @Override
@@ -265,22 +284,6 @@ public class ImageLoader {
         @Override
         public void onLoadCleared(Drawable placeholder) {
             Log.d(TAG, "onLoadCleared");
-        }
-
-        @Override
-        public void getSize(SizeReadyCallback cb) {
-            Log.d(TAG, "getSize");
-        }
-
-        @Override
-        public void setRequest(Request request) {
-            Log.d(TAG, "setRequest");
-        }
-
-        @Override
-        public Request getRequest() {
-            Log.d(TAG, "getRequest");
-            return null;
         }
 
         @Override

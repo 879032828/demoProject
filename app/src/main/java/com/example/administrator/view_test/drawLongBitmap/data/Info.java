@@ -7,6 +7,7 @@ public class Info implements Serializable {
 
     String content;
     List<String> imageList;
+    String iconPath;
 
     public String getContent() {
         return content;
@@ -23,4 +24,13 @@ public class Info implements Serializable {
     public void setImageList(List<String> imageList) {
         this.imageList = imageList;
     }
+
+    public String getIconPath() {
+        return iconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        this.iconPath = iconPath;
+    }
+
 }

@@ -3,6 +3,7 @@ package com.example.administrator.view_test.drawLongBitmap;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,8 +21,11 @@ import com.example.administrator.view_test.dialog.ShareDialogFactory;
 import com.example.administrator.view_test.dialog.ShareType;
 import com.example.administrator.view_test.dialog.ShareWhiteDialog;
 import com.example.administrator.view_test.drawLongBitmap.data.Info;
+import com.example.administrator.view_test.util.ImageLoader;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,6 +42,9 @@ public class ShareFragment extends DialogFragment implements View.OnClickListene
     private LinearLayout llPosterLoading;
 
     private MyAllDrawLongPictureUtil drawLongPictureUtil;
+    private List<String> imageUrlList;
+    private List<String> pathList;
+    private String iconPath;
     private String resultPath;
 
     public static ShareFragment newInstance() {
@@ -55,12 +62,12 @@ public class ShareFragment extends DialogFragment implements View.OnClickListene
         super.onCreate(savedInstanceState);
         mFragment = this;
         initData();
+        downloadAllImage();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        startLoading();
     }
 
     @Override
@@ -70,9 +77,14 @@ public class ShareFragment extends DialogFragment implements View.OnClickListene
 
     private void initData() {
         handleArguments();
+        imageUrlList = new ArrayList<>();
+        imageUrlList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+        imageUrlList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+        imageUrlList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+        imageUrlList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
     }
 
-    private void startLoading() {
+    private void startDraw() {
         drawLongPictureUtil = new MyAllDrawLongPictureUtil(mContext);
         drawLongPictureUtil.setListener(new MyAllDrawLongPictureUtil.Listener() {
             @Override
@@ -107,14 +119,41 @@ public class ShareFragment extends DialogFragment implements View.OnClickListene
         });
         Info info = new Info();
         info.setContent("这是内容");
-        List<String> ImageList = new ArrayList<String>();
-        ImageList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
-        ImageList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
-        ImageList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
-        ImageList.add("http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
-        info.setImageList(ImageList);
+        info.setImageList(pathList);
+        info.setIconPath(iconPath);
         drawLongPictureUtil.setData(info);
         drawLongPictureUtil.startDraw();
+    }
+
+    private void downloadAllImage() {
+
+        ImagesDownloader.newInstance(mContext).start(new ImagesDownloader.DownloadCallback() {
+            @Override
+            public void onComplete(String... paths) {
+                //在线程中同步下载图片并加载
+//                        for (int i = 0; i < viewId.length; i++) {
+//                            ImageView imageView = llImageView.findViewById(viewId[i]);
+//                            imageView.setImageBitmap(BitmapFactory.decodeFile(paths[i]));
+//                        }
+                pathList = Arrays.asList(paths);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //在线程中同步下载图片并加载
+                        File file = ImageLoader.getInstance().downLoadFile(mContext, "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+                        if (file != null) {
+                            iconPath = file.getPath();
+                        }
+                        startDraw();
+                    }
+                }).start();
+            }
+
+            @Override
+            public void onFalied(Exception e) {
+
+            }
+        }, imageUrlList);
     }
 
     private void handleArguments() {

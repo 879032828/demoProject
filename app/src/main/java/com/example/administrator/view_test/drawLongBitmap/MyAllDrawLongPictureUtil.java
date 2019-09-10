@@ -52,9 +52,17 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
     private Listener listener;
 
     private Info shareInfo;
-    // 图片的url集合
+    /**
+     * 图片的url集合
+     */
     private List<String> imageUrlList;
-    // 保存下载后的图片url和路径键值对的链表
+    /**
+     * 图片路径集合
+     */
+    private List<String> pathList;
+    /**
+     * 保存下载后的图片url和路径键值对的链表
+     */
     private LinkedHashMap<String, String> localImagePathMap;
 
     private View rootView;
@@ -83,17 +91,9 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
 
     // 被认定为长图的长宽比
     private int maxSingleImageRatio = 3;
-    private int widthTop = 0;
-    private int heightTop = 0;
 
     private int widthContent = 0;
     private int heightContent = 0;
-
-    private int widthBottom = 0;
-    private int heightBottom = 0;
-
-    private int widthImageView = 0;
-    private int heightImageView = 0;
 
     private int widthllAllContent = 0;
     private int heightllAllContent = 0;
@@ -169,10 +169,6 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
 
         layoutView(llLogo);
         layoutView(llAllContent);
-//        layoutView(iv_image_2);
-//        layoutView(iv_image_3);
-//        layoutView(iv_image_4);
-
 
         widthllAllContent = llAllContent.getMeasuredWidth();
         heightllAllContent = llAllContent.getMeasuredHeight();
@@ -180,10 +176,7 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
         widthllLogo = llLogo.getMeasuredWidth();
         heightllLogo = llLogo.getMeasuredHeight();
 
-        Log.d(TAG, "drawLongPicture layout top view = " + widthTop + " × " + heightTop);
         Log.d(TAG, "drawLongPicture layout llContent view = " + widthContent + " × " + heightContent);
-        Log.d(TAG, "drawLongPicture layout bottom view = " + widthBottom + " × " + heightBottom);
-        Log.d(TAG, "drawLongPicture layout llImageView view = " + widthImageView + " × " + heightImageView);
     }
 
     /**
@@ -202,9 +195,9 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
 
     public void setData(Info info) {
         this.shareInfo = info;
-        this.imageUrlList = shareInfo.getImageList();
-        if (this.imageUrlList == null) {
-            this.imageUrlList = new ArrayList<>();
+        this.pathList = shareInfo.getImageList();
+        if (this.pathList == null) {
+            this.pathList = new ArrayList<>();
         }
         if (localImagePathMap != null) {
             localImagePathMap.clear();
@@ -214,56 +207,8 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
     }
 
     public void startDraw() {
-        // 需要先下载全部需要用到的图片（用户头像、图片等），下载完成后再进行长图的绘制操作
-        downloadAllImage();
-    }
-
-    private void downloadAllImage() {
-        // TODO 之类根据自己的逻辑进行图片的下载，此Demo为了简单，制作一个延时模拟下载过程
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // 模拟下载图片的耗时操作
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                // 图片下载完成后，进行view的绘制
-                // 模拟保存图片url、路径的键值对
-                for (int i = 0; i < imageUrlList.size(); i++) {
-                    localImagePathMap.put(imageUrlList.get(i), imageUrlList.get(i));
-                }
-                //在线程中同步下载图片并加载
-                File file = downLoadFile(context, "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
-                if (file != null) {
-                    imgUserIcon.setImageBitmap(BitmapFactory.decodeFile(file.getPath()));
-                }
-                // 开始绘制view
-                draw();
-            }
-        }).start();
-    }
-
-    /**
-     * 同步下载文件，需要自己开启线程处理
-     *
-     * @param context
-     * @param url
-     * @return
-     */
-    public File downLoadFile(Context context, String url) {
-        try {
-            return Glide.with(context)
-                    .load(url)
-                    .downloadOnly(10, 10)
-                    .get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        return null;
+        imgUserIcon.setImageBitmap(BitmapFactory.decodeFile(shareInfo.getIconPath()));
+        draw();
     }
 
     private Bitmap getLinearLayoutBitmap(LinearLayout linearLayout, int w, int h) {
@@ -422,18 +367,8 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
         //中间布局高度缩小值，后续将这个高度缩小值按百分比分散在其他布局的顶部偏移量
         int topShrink = (int) (heightllAllContent - heightllAllContent * 0.9);
 
-        //在线程中同步下载图片并加载
-        for (int i = 0; i < viewId.length; i++) {
-            File file = downLoadFile(context, imageUrlList.get(i));
-            if (file != null) {
-                ImageView imageView = llImageView.findViewById(viewId[i]);
-                imageView.setImageBitmap(BitmapFactory.decodeFile(file.getPath()));
-            }
-        }
-
         canvas.drawBitmap(getLinearLayoutBitmap(llLogo, widthllLogo, heightllLogo), 0, (float) (topShrink * 0.3), paint);
         canvas.save();
-
 
         //中间布局左偏移量
         int leftOffset = leftShrink / 2;
@@ -444,19 +379,10 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
         canvas.drawBitmap(getRoundedCornerBitmap(getLinearLayoutBitmap(llAllContent, widthllAllContent, heightllAllContent), 25), leftOffset, topOffset, paint);
         canvas.save();
 
-//        // 绘制content view
-//        canvas.translate(PhoneUtil.dp2px(mContext, 20), heightTop);
-//        staticLayout.draw(canvas);
-
-//        // 绘制四张图片
-//        canvas.restore();
-//        canvas.drawBitmap(getLinearLayoutBitmap(llImageView, widthImageView, heightImageView), 0,
-//                heightTop + heightContent + PhoneUtil.dp2px(mContext, 16), paint);
-//        canvas.save();
-//
-//        // 绘制bottom view
-//        canvas.drawBitmap(getLinearLayoutBitmap(llBottomView, widthBottom, heightBottom), 0,
-//                (heightTop + heightContent + heightImageView + PhoneUtil.dp2px(mContext, 16)), paint);
+        for (int i = 0; i < viewId.length; i++) {
+            ImageView imageView = llImageView.findViewById(viewId[i]);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(pathList.get(i)));
+        }
 
         // 生成最终的文件，并压缩大小，这里使用的是：implementation 'com.github.nanchen2251:CompressHelper:1.0.5'
         try {

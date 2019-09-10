@@ -9,7 +9,9 @@ import android.widget.Toast;
 import com.example.administrator.view_test.Base.BaseActivity;
 import com.example.administrator.view_test.R;
 import com.example.administrator.view_test.drawLongBitmap.data.Info;
+import com.example.administrator.view_test.util.ImageLoader;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -37,37 +39,18 @@ public class DrawLongBitmapActivity extends BaseActivity {
     public void initPresenter() {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                drawLongPictureUtil = new MyAllDrawLongPictureUtil(DrawLongBitmapActivity.this);
-//                drawLongPictureUtil.setListener(new MyAllDrawLongPictureUtil.Listener() {
-//                    @Override
-//                    public void onSuccess(String path) {
-//
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(DrawLongBitmapActivity.this.getApplicationContext(),
-//                                        "已经生成",
-//                                        Toast.LENGTH_LONG).show();
-//                            }
-//                        });
-//                        resultPath = path;
-//                    }
-//
-//                    @Override
-//                    public void onFail() {
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                            }
-//                        });
-//                    }
-//                });
-//                Info info = new Info();
-//                info.setContent("这是内容");
-//                info.setImageList(new ArrayList<String>());
-//                drawLongPictureUtil.setData(info);
-//                drawLongPictureUtil.startDraw();
+            public void onClick(View v) {//http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100
+                ImageLoader.getInstance().downloadFileWithCallback(mContext, "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100", new ImageLoader.FileDownloadCallback() {
+                    @Override
+                    public void onFileReady(File file) {
+
+                    }
+
+                    @Override
+                    public void onFileFailed(Exception e) {
+
+                    }
+                });
             }
         });
 
