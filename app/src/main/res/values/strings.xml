@@ -46,4 +46,15 @@
     <string name="google_plus_client_inavailable">Google+ 版本过低或者没有安装，需要升级或安装Google+才能使用！</string>
     <string name="activity_sample_blur_radius">Blur radius : </string>
     <string name="activity_sample_down_scale_factor">Down Scale Factor : </string>
+
+    <string name="share_qqzone">QQ空间</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_weixin">微信好友</string>
+    <string name="share_gp">怪拍</string>
+    <string name="share_weibo">微博</string>
+    <string name="share_friend">朋友圈</string>
+    <string name="share_link">拷贝链接</string>
+    <string name="share_report">举报</string>
+    <string name="share_save">保存相册</string>
+    <string name="share_create_poster">生成海报</string>
 </resources>

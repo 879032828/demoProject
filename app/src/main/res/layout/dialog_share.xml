@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/share_translucent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_share">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#00ffffff"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_long_picture"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_share"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_top_round_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_top_round_20"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="分享到"
+            android:textColor="@color/color_666666"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/share_create_poster_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_save"
+                android:text="@string/share_create_poster"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/share_save_local_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_save"
+                android:text="@string/share_save"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/share_wechat_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_wechat"
+                android:text="@string/share_weixin" />
+
+            <TextView
+                android:id="@+id/share_wechat_moments_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_wechat_moments"
+                android:text="@string/share_friend" />
+
+            <TextView
+                android:id="@+id/share_sina_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_sina"
+                android:text="@string/share_weibo" />
+
+            <TextView
+                android:id="@+id/share_qq_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_qq"
+                android:text="@string/share_qq" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_padding"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/share_qqzone_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_qqzone"
+                android:text="@string/share_qqzone" />
+
+            <TextView
+                android:id="@+id/share_copy_link_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_copy_link"
+                android:text="@string/share_link" />
+
+            <TextView
+                android:id="@+id/share_report_view"
+                style="@style/share_view"
+                android:drawableTop="@drawable/selector_share_report"
+                android:text="@string/share_report"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="取消"
+            android:textColor="@color/color_666666" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_poster_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="海报加载中"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

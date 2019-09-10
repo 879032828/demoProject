@@ -1,5 +1,6 @@
 package com.example.administrator.view_test.Base;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,9 +30,14 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     public T mPresenter;
     public E mModel;
 
+    public Context mContext;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mContext = this;
+
         doBeforeSetcontentView();
         setContentView(getLayoutId());
         doAfterSetcontentView();

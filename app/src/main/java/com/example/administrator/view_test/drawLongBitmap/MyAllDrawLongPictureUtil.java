@@ -232,7 +232,7 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
                 // 图片下载完成后，进行view的绘制
                 // 模拟保存图片url、路径的键值对
                 for (int i = 0; i < imageUrlList.size(); i++) {
-                    localImagePathMap.put(imageUrlList.get(i), "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+                    localImagePathMap.put(imageUrlList.get(i), imageUrlList.get(i));
                 }
                 //在线程中同步下载图片并加载
                 File file = downLoadFile(context, "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
@@ -423,8 +423,8 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
         int topShrink = (int) (heightllAllContent - heightllAllContent * 0.9);
 
         //在线程中同步下载图片并加载
-        for (int i = 0; i < 4; i++) {
-            File file = downLoadFile(context, "http://thirdqq.qlogo.cn/g?b=oidb&k=4xuEcb5LLaKN9icPuwW9kcg&s=100");
+        for (int i = 0; i < viewId.length; i++) {
+            File file = downLoadFile(context, imageUrlList.get(i));
             if (file != null) {
                 ImageView imageView = llImageView.findViewById(viewId[i]);
                 imageView.setImageBitmap(BitmapFactory.decodeFile(file.getPath()));
@@ -445,18 +445,18 @@ public class MyAllDrawLongPictureUtil extends LinearLayout {
         canvas.save();
 
 //        // 绘制content view
-//        canvas.translate(PhoneUtil.dp2px(context, 20), heightTop);
+//        canvas.translate(PhoneUtil.dp2px(mContext, 20), heightTop);
 //        staticLayout.draw(canvas);
 
 //        // 绘制四张图片
 //        canvas.restore();
 //        canvas.drawBitmap(getLinearLayoutBitmap(llImageView, widthImageView, heightImageView), 0,
-//                heightTop + heightContent + PhoneUtil.dp2px(context, 16), paint);
+//                heightTop + heightContent + PhoneUtil.dp2px(mContext, 16), paint);
 //        canvas.save();
 //
 //        // 绘制bottom view
 //        canvas.drawBitmap(getLinearLayoutBitmap(llBottomView, widthBottom, heightBottom), 0,
-//                (heightTop + heightContent + heightImageView + PhoneUtil.dp2px(context, 16)), paint);
+//                (heightTop + heightContent + heightImageView + PhoneUtil.dp2px(mContext, 16)), paint);
 
         // 生成最终的文件，并压缩大小，这里使用的是：implementation 'com.github.nanchen2251:CompressHelper:1.0.5'
         try {

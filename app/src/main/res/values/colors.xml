@@ -19,4 +19,11 @@
 
     <color name="color_42c6f6">#8c42C6F6</color>
     <color name="color_7d75f5">#8c7D75F5</color>
+
+    <color name="share_translucent">#EE333333</color>
+    <color name="dialog_standard_bg">#ffffff</color>  <!--对话框主要背景色-->
+    <color name="color_666666">#666666</color>
+    <color name="color_767676">#767676</color>
+    <color name="ripple">#808080</color><!-- ripple墨汁波纹主颜色 #808080-->
+    <color name="ripple_share">#222222</color>
 </resources>

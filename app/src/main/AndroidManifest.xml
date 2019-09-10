@@ -165,6 +165,7 @@
         <activity android:name=".DialogFragment.SampleActivity" />
         <activity android:name=".InstallActivity" />
         <activity android:name=".drawLongBitmap.DrawLongBitmapActivity" />
+        <activity android:name=".drawLongBitmap.ShowPhotoViewActivity" />
     </application>
 
 </manifest>
