@@ -13,6 +13,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.administrator.view_test.Base.BaseActivity;
 import com.example.administrator.view_test.DialogFragment.SampleActivity;
+import com.example.administrator.view_test.Leakcanary.LeakCanaryActivity;
 import com.example.administrator.view_test.LenTextView.LeanTextViewActivity;
 import com.example.administrator.view_test.ScrollView.Scroller.ScrollerActivity;
 import com.example.administrator.view_test.ValueAnimator.ValueAnimatorActivity;
@@ -72,6 +73,9 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.drawlongBitmap)
     public Button drawlongBitmap;
+
+    @BindView(R.id.leakCanary)
+    public Button leakCanary;
 
     public LocationClient mLocationClient = null;
 
@@ -217,6 +221,12 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.drawlongBitmap)
     public void drawlongBitmap() {
         Intent intent = new Intent(Main2Activity.this, DrawLongBitmapActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.leakCanary)
+    public void leakCanary() {
+        Intent intent = new Intent(Main2Activity.this, LeakCanaryActivity.class);
         startActivity(intent);
     }
 }
