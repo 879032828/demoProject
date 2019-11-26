@@ -9,6 +9,7 @@ import com.example.administrator.view_test.Base.BaseActivity;
 import com.example.administrator.view_test.CallPhone.callphoneActivity;
 import com.example.administrator.view_test.H5.H5ToAndroidActivity;
 import com.example.administrator.view_test.H5.h5Activity;
+import com.example.administrator.view_test.LongImage.LongImageActivity;
 import com.example.administrator.view_test.Popupwindow.popupwindowActivity;
 import com.example.administrator.view_test.PropertyAnimation.AnimationActivity;
 import com.example.administrator.view_test.RecyclerMoreActivity.RecyclerViewMoreActivity;
@@ -125,6 +126,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.showsecondActivity)
     public Button showsecondActivity;
+
+    @BindView(R.id.showLongImage)
+    public Button showLongImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -361,5 +365,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.showsecondActivity)
     public void showsecondActivity() {
         startActivity(new Intent(MainActivity.this, Main2Activity.class));
+    }
+
+    @OnClick(R.id.showLongImage)
+    public void showLongImage() {
+        startActivity(new Intent(MainActivity.this, LongImageActivity.class));
     }
 }

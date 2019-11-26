@@ -156,6 +156,7 @@
         <activity android:name=".InstallActivity" />
         <activity android:name=".drawLongBitmap.DrawLongBitmapActivity" />
         <activity android:name=".drawLongBitmap.ShowPhotoViewActivity" />
+        <activity android:name=".LongImage.LongImageActivity" />
     </application>
 
 </manifest>
