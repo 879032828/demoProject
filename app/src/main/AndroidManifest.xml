@@ -30,8 +30,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Leakcanary.LeakCanaryActivity"></activity>
-        <!-- 拍照/相册，7.0时需要采用fileprovider形式 -->
+        <activity android:name=".OkhttpAnalyze.okhttpAnalyzeActivity"></activity>
+        <activity android:name=".Leakcanary.LeakCanaryActivity" /> <!-- 拍照/相册，7.0时需要采用fileprovider形式 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.administrator.view_test.fileprovider"

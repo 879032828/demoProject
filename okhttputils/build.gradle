@@ -42,7 +42,7 @@ makeJar.dependsOn(clearJar, build)
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.squareup.okhttp3:okhttp:3.3.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 }
 
 //添加
