@@ -33,6 +33,7 @@ import com.example.administrator.view_test.listview.listviewActivity;
 import com.example.administrator.view_test.listview.pullToRefreshListViewGai.listview2Activity;
 import com.example.administrator.view_test.photodemo.photoActivity;
 import com.example.administrator.view_test.showandhide.showandhideActivity;
+import com.example.administrator.view_test.websocket.websocketActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -129,6 +130,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.showLongImage)
     public Button showLongImage;
+
+    @BindView(R.id.showWebsocket)
+    public Button showWebsocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -370,5 +374,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.showLongImage)
     public void showLongImage() {
         startActivity(new Intent(MainActivity.this, LongImageActivity.class));
+    }
+
+    @OnClick(R.id.showWebsocket)
+    public void showWebsocket() {
+        startActivity(new Intent(MainActivity.this, websocketActivity.class));
     }
 }

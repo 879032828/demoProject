@@ -21,7 +21,19 @@ public class websocketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_websocket);
-        initWebSocket();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SocketTest.test(websocketActivity.this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+//        initWebSocket();
     }
 
     private void initWebSocket() {
