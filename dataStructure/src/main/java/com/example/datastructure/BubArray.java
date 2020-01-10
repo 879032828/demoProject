@@ -40,7 +40,6 @@ public class BubArray {
                     a[j + 1] = temp;
                 }
             }
-
         }
     }
 
