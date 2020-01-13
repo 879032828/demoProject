@@ -1,5 +1,8 @@
 package com.example.datastructure.stack;
 
+/**
+ * 后缀表达式计算算术表达式
+ */
 public class Postfix {
 
     /**
@@ -8,17 +11,26 @@ public class Postfix {
     private String infix;
     /**
      * 存储操作符
+     * <p>
+     * 中缀表达式转后缀表达式时使用
      */
-    private Stack stack;
+    private Stack operatorStack;
     /**
      * 后缀表达式输出
      */
     private StringBuilder output;
+    /**
+     * 存储操作数
+     * <p>
+     * 计算后缀表达式时使用
+     */
+    private Stack operandStack;
 
     public Postfix(String value) {
         infix = value;
         output = new StringBuilder();
-        stack = new Stack(value.length());
+        operatorStack = new Stack(value.length());
+        operandStack = new Stack(value.length());
     }
 
     /**
@@ -43,15 +55,15 @@ public class Postfix {
                     break;
                 case '(':
                     try {
-                        stack.push(infixChar);
+                        operatorStack.push(infixChar);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
                 case ')':
-                    while (!stack.isEmpty()) {//栈非空时
+                    while (!operatorStack.isEmpty()) {//栈非空时
                         try {
-                            char data = (char) stack.pop();//弹出一项
+                            char data = (char) operatorStack.pop();//弹出一项
                             if (data == '(') {
                                 break;
                             } else {
@@ -63,23 +75,23 @@ public class Postfix {
                     }
                     break;
                 default:
-                    if (stack.isEmpty()) {//若栈为空
+                    if (operatorStack.isEmpty()) {//若栈为空
                         try {
-                            stack.push(infixChar);
+                            operatorStack.push(infixChar);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     } else {//若栈不为空
-                        while (!stack.isEmpty()) {//循环
+                        while (!operatorStack.isEmpty()) {//循环
                             try {
-                                char data = (char) stack.pop();
+                                char data = (char) operatorStack.pop();
                                 if (data == '(') {
-                                    stack.push(data);
+                                    operatorStack.push(data);
                                     break;
                                 }
 
                                 if (priorityCompare(data) < priorityCompare(infixChar)) {
-                                    stack.push(data);
+                                    operatorStack.push(data);
                                     break;
                                 } else {
                                     output.append(data);
@@ -91,7 +103,7 @@ public class Postfix {
                             }
                         }
                         try {
-                            stack.push(infixChar);
+                            operatorStack.push(infixChar);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -100,9 +112,9 @@ public class Postfix {
             }
         }
 
-        while (!stack.isEmpty()) {
+        while (!operatorStack.isEmpty()) {
             try {
-                output.append((char) stack.pop());
+                output.append((char) operatorStack.pop());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -133,6 +145,63 @@ public class Postfix {
                 break;
         }
         return priority;
+    }
+
+    public long calculate() {
+        String data = output.toString();
+        long operand1;
+        long operand2;
+        long result = 0;
+        for (int i = 0; i < data.length(); i++) {
+            char operand = data.charAt(i);
+            switch (operand) {
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    try {
+                        operand1 = operandStack.pop();
+                        operand2 = operandStack.pop();
+                        if ('+' == operand) {
+                            result = operand2 + operand1;
+                        }
+                        if ('-' == operand) {
+                            result = operand2 - operand1;
+                        }
+                        if ('*' == operand) {
+                            result = operand2 * operand1;
+                        }
+                        if ('/' == operand) {
+                            result = operand2 / operand1;
+                        }
+                        operandStack.push(result);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                default:
+                    try {
+                        operandStack.push(toInt(operand));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
+        try {
+            return operandStack.pop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private int toInt(char ch) {
+        int num = 0;
+        if (Character.isDigit(ch)) {  // 判断是否是数字
+            num = Integer.parseInt(String.valueOf(ch));
+        }
+        return num;
     }
 
 }

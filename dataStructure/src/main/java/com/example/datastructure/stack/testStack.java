@@ -33,9 +33,10 @@ public class testStack {
 //            e.printStackTrace();
 //        }
 
-        Postfix postfix = new Postfix("1+2*3");
+        Postfix postfix = new Postfix("5*5+6-4+1");
         postfix.transformToPostfix();
         postfix.display();
+        System.out.println("The result is :" + postfix.calculate());
     }
 
 }

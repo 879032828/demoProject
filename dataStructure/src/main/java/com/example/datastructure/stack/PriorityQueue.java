@@ -2,14 +2,16 @@ package com.example.datastructure.stack;
 
 /**
  * 使用数组的优先级队列
+ * <p>
+ * 优先级队列就是有序的队列，队尾插入，队头移除，先进先出
  */
-public class Priority {
+public class PriorityQueue {
 
     private int maxSize;
     private long[] quearray;
     private int count;
 
-    public Priority(int size) {
+    public PriorityQueue(int size) {
         maxSize = size;
         quearray = new long[size];
         count = 0;
