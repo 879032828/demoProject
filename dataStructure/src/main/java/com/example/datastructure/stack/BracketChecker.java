@@ -1,5 +1,8 @@
 package com.example.datastructure.stack;
 
+/**
+ * 分隔符检测
+ */
 public class BracketChecker {
 
     private String input;

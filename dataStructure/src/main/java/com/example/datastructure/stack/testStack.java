@@ -26,12 +26,16 @@ public class testStack {
 //        reverser.putInputString("abcdefg");
 //        System.out.println(reverser.doReverser());
 
-        BracketChecker bracketChecker = new BracketChecker("a{b(c)d}e");
-        try {
-            bracketChecker.check();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        BracketChecker bracketChecker = new BracketChecker("a{b(c)d}e");
+//        try {
+//            bracketChecker.check();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        Postfix postfix = new Postfix("1+2*3");
+        postfix.transformToPostfix();
+        postfix.display();
     }
 
 }

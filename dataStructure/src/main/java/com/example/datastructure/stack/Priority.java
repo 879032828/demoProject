@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.datastructure.stack;
 
 /**
  * 使用数组的优先级队列

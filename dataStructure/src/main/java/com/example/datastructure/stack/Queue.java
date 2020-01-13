@@ -1,5 +1,8 @@
-package com.example.datastructure;
+package com.example.datastructure.stack;
 
+/**
+ * 队列
+ */
 public class Queue {
 
     private int maxSize;
