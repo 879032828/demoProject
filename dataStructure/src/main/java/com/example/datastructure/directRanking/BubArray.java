@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.datastructure.directRanking;
 
 /**
  * 无序数组 ---- 冒泡排序

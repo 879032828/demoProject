@@ -1,4 +1,4 @@
-package com.example.datastructure;
+package com.example.datastructure.directRanking;
 
 /**
  * 对象排序
