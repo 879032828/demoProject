@@ -28,7 +28,7 @@ public class testStack {
 
 //        BracketChecker bracketChecker = new BracketChecker("a{b(c)d}e");
 //        try {
-//            bracketChecker.check();
+//            bracketChecker.find();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
