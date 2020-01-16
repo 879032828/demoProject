@@ -30,8 +30,25 @@ public class testLink {
 //        System.out.println("========================================================================");
 //        linkList.display();
 
-        SortedList linkList = new SortedList();
+//        SortedList linkList = new SortedList();
+//
+//        Link link1 = new Link(1, "11");
+//        Link link3 = new Link(3, "33");
+//        Link link5 = new Link(5, "55");
+//        Link link2 = new Link(2, "22");
+//        Link link4 = new Link(4, "44");
+//        Link link6 = new Link(6, "66");
+//
+//        linkList.insert(link1);
+//        linkList.insert(link2);
+//        linkList.insert(link3);
+//        linkList.insert(link4);
+//        linkList.insert(link5);
+//        linkList.insert(link6);
+//
+//        linkList.display();
 
+        ListInsertionSort listInsertionSort = new ListInsertionSort();
         Link link1 = new Link(1, "11");
         Link link3 = new Link(3, "33");
         Link link5 = new Link(5, "55");
@@ -39,14 +56,21 @@ public class testLink {
         Link link4 = new Link(4, "44");
         Link link6 = new Link(6, "66");
 
-        linkList.insert(link1);
-        linkList.insert(link2);
-        linkList.insert(link3);
-        linkList.insert(link4);
-        linkList.insert(link5);
-        linkList.insert(link6);
+        Link[] links = new Link[6];
+        links[0] = link1;
+        links[1] = link2;
+        links[2] = link3;
+        links[3] = link4;
+        links[4] = link5;
+        links[5] = link6;
 
-        linkList.display();
+
+        listInsertionSort.insertAll(links);
+        Link[] temp = listInsertionSort.findAll();
+        for (int i = 0; i < temp.length; i++) {
+            System.out.println(temp[i]);
+        }
+
     }
 
 }

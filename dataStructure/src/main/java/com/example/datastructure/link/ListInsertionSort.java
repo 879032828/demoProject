@@ -1,12 +1,41 @@
 package com.example.datastructure.link;
 
 /**
- * 有序链表
+ * 使用有序链表，将一个无序数组排序
  */
-public class SortedList {
+public class ListInsertionSort {
 
     private Link first;
     private int size;
+
+    /**
+     * 将一个无序数组插入有序链表中
+     *
+     * @param array
+     */
+    public void insertAll(Link[] array) {
+        for (int i = 0; i < array.length; i++) {
+            insert(array[i]);
+        }
+    }
+
+    /**
+     * 将有序链表中的值输出到数组中
+     *
+     * @return
+     */
+    public Link[] findAll() {
+        Link temp = first;
+        Link[] result = new Link[size];
+        int count = 0;
+        while (temp != null) {
+            System.out.println("the link" + temp.toString());
+            result[count] = temp;
+            count++;
+            temp = temp.next;
+        }
+        return result;
+    }
 
     public void insert(Link link) {
         Link previous = null;
