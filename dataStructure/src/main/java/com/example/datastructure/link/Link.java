@@ -5,9 +5,20 @@ package com.example.datastructure.link;
  */
 public class Link {
 
+
     public int age;
     public String name;
     public Link next;
+    public Link previous;
+
+    public Link() {
+
+    }
+
+    public Link(int age) {
+        this.age = age;
+    }
+
 
     public Link(int age, String name) {
         this.age = age;
