@@ -1,14 +1,14 @@
-package com.example.datastructure.directRanking;
+package com.example.datastructure.advancedSort;
 
 /**
- * 插入排序
+ * 希尔排序
  */
-public class InsertArray {
+public class ShellArray {
 
     private long[] a;
     private int nElems;
 
-    public InsertArray(int max) {
+    public ShellArray(int max) {
         a = new long[max];
         nElems = 0;
     }
@@ -27,11 +27,34 @@ public class InsertArray {
         nElems++;
     }
 
+    public void shellSort() {
+        int inner, outer;
+        long temp;
+
+        int h = 1;//数据项之间的间隔：增量
+        while (h < nElems / 3) {
+            h = h * 3 + 1;
+        }
+        while (h > 0) {
+            for (outer = h; outer < nElems; outer++) {
+                temp = a[outer];
+                inner = outer;
+
+                while (inner > h - 1 && a[inner - h] >= temp) {
+                    a[inner] = a[inner - h];
+                    inner -= h;
+                }
+                a[inner] = temp;
+            }
+            h = (h - 1) / 3;
+        }
+    }
+
     /**
      * 插入排序
-     *
+     * <p>
      * 对于随机顺序的数据进行插入排序也是需要O(N2)
-     *
+     * <p>
      * 对于已经有序或基本有序的数据来说，插入排序要好得多。
      * 当数据有序的时候，while循环的条件总是假，所以它变成了外层循环中的一个简单语句
      */

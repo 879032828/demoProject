@@ -1,4 +1,4 @@
-package com.example.datastructure.directRanking;
+package com.example.datastructure.simpleRanking;
 
 /**
  * 有序数组 ---- 二分查找法

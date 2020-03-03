@@ -1,4 +1,4 @@
-package com.example.datastructure.directRanking;
+package com.example.datastructure.simpleRanking;
 
 public class testArray {
 
@@ -25,16 +25,16 @@ public class testArray {
 //        selectArray.display();
 
 
-        InsertArray selectArray = new InsertArray(10);
-        selectArray.insert(2);
-        selectArray.insert(4);
-        selectArray.insert(1);
-        selectArray.insert(7);
-        selectArray.insert(1);
-        selectArray.insert(3);
-        selectArray.insert(99);
-        selectArray.insertSort();
-        selectArray.display();
+//        InsertArray selectArray = new InsertArray(10);
+//        selectArray.insert(2);
+//        selectArray.insert(4);
+//        selectArray.insert(1);
+//        selectArray.insert(7);
+//        selectArray.insert(1);
+//        selectArray.insert(3);
+//        selectArray.insert(99);
+//        selectArray.insertSort();
+//        selectArray.display();
     }
 
 }
