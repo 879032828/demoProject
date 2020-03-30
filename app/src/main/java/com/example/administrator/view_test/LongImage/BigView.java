@@ -25,11 +25,29 @@ public class BigView extends View implements GestureDetector.OnGestureListener, 
     private static final int IMAGE_HORIZONTAL = 2;
 
     private final BitmapFactory.Options mOptions;
+    /**
+     * 手势控制器
+     */
     private final GestureDetector gestureDetector;
+    /**
+     * 滑动辅助类
+     */
     private final Scroller scroller;
+    /**
+     * 图片显示矩形
+     */
     private Rect mRect;
+    /**
+     * 图片宽
+     */
     private int mImageWidth;
+    /**
+     * 图片高
+     */
     private int mImageHeight;
+    /**
+     * 图片局部加载
+     */
     private BitmapRegionDecoder mDecoder;
     private int mViewWidth;
     private int mViewHeigh;

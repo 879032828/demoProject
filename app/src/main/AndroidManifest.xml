@@ -158,6 +158,35 @@
         <activity android:name=".drawLongBitmap.DrawLongBitmapActivity" />
         <activity android:name=".drawLongBitmap.ShowPhotoViewActivity" />
         <activity android:name=".LongImage.LongImageActivity" />
+
+        <receiver android:name="com.example.administrator.view_test.Receiver.UpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+        <receiver android:name="com.qualcomm.update.background.UpdateReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="com.qualcomm.update.background.startUpdateReceiver" />
+                <action android:name="com.qualcomm.update.background.disconnect" />
+                <action android:name="com.qualcomm.update.background.reset" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.qualcomm.update.background.UpdateService"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="hahah" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>
