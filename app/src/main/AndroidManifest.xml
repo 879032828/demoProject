@@ -30,7 +30,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".websocket.okhttpActivity"></activity>
+        <activity android:name=".randomAccessFile.randomActivity"></activity>
+        <activity android:name=".websocket.okhttpActivity" />
         <activity android:name=".OkhttpAnalyze.okhttpAnalyzeActivity" />
         <activity android:name=".Leakcanary.LeakCanaryActivity" /> <!-- 拍照/相册，7.0时需要采用fileprovider形式 -->
         <provider
@@ -159,13 +160,11 @@
         <activity android:name=".drawLongBitmap.ShowPhotoViewActivity" />
         <activity android:name=".LongImage.LongImageActivity" />
 
-        <receiver android:name="com.example.administrator.view_test.Receiver.UpdateReceiver">
+        <receiver android:name=".Receiver.UpdateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-
         <receiver android:name="com.qualcomm.update.background.UpdateReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="com.qualcomm.update.background.startUpdateReceiver" />
@@ -185,8 +184,6 @@
                 <action android:name="hahah" />
             </intent-filter>
         </service>
-
-
     </application>
 
 </manifest>

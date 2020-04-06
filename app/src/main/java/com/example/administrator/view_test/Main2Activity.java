@@ -22,6 +22,7 @@ import com.example.administrator.view_test.doubleClick.doubleClickActivity;
 import com.example.administrator.view_test.drawLongBitmap.DrawLongBitmapActivity;
 import com.example.administrator.view_test.privateDir.privatedirActivity;
 import com.example.administrator.view_test.progressView.ProgressViewActivity;
+import com.example.administrator.view_test.randomAccessFile.randomActivity;
 import com.example.administrator.view_test.splash.splashActivity;
 import com.example.administrator.view_test.vlayout.vlayoutActivity;
 import com.example.administrator.view_test.webp.webpActivity;
@@ -76,6 +77,9 @@ public class Main2Activity extends BaseActivity {
 
     @BindView(R.id.leakCanary)
     public Button leakCanary;
+
+    @BindView(R.id.randomAccessFile)
+    public Button randomAccessFile;
 
     public LocationClient mLocationClient = null;
 
@@ -227,6 +231,12 @@ public class Main2Activity extends BaseActivity {
     @OnClick(R.id.leakCanary)
     public void leakCanary() {
         Intent intent = new Intent(Main2Activity.this, LeakCanaryActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.randomAccessFile)
+    public void randomAccessFile() {
+        Intent intent = new Intent(Main2Activity.this, randomActivity.class);
         startActivity(intent);
     }
 }
